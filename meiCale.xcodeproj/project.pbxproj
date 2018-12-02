@@ -7,21 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2107DB18219FD2A900817ACC /* SelectPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107DB17219FD2A900817ACC /* SelectPersonViewController.swift */; };
+		2107DB1A219FF1A400817ACC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2107DB19219FF1A400817ACC /* Default-568h@2x.png */; };
+		2107DB1E219FF68600817ACC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2107DB1D219FF68500817ACC /* GoogleService-Info.plist */; };
+		2107DB2A21A36ABE00817ACC /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2107DB2321A36ABE00817ACC /* BEMAnimationManager.m */; };
+		2107DB2B21A36ABE00817ACC /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2107DB2421A36ABE00817ACC /* BEMPathManager.m */; };
+		2107DB2C21A36ABE00817ACC /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2107DB2521A36ABE00817ACC /* BEMCheckBoxGroup.m */; };
+		2107DB2D21A36ABE00817ACC /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2107DB2721A36ABE00817ACC /* BEMCheckBox.m */; };
+		2107DB3021A8D1FC00817ACC /* MyCustomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107DB2F21A8D1FC00817ACC /* MyCustomeData.swift */; };
+		2107DB3521A8E67E00817ACC /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107DB3321A8E67E00817ACC /* MyCustomCell.swift */; };
+		2107DB3621A8E67E00817ACC /* MyCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2107DB3421A8E67E00817ACC /* MyCustomCell.xib */; };
+		2107DB3821A90F1A00817ACC /* topImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2107DB3721A90F1A00817ACC /* topImage.jpg */; };
 		217F4E97219D9618003F9DCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F4E96219D9618003F9DCE /* AppDelegate.swift */; };
-		217F4E99219D9618003F9DCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F4E98219D9618003F9DCE /* ViewController.swift */; };
+		217F4E99219D9618003F9DCE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F4E98219D9618003F9DCE /* LoginViewController.swift */; };
 		217F4E9C219D9618003F9DCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217F4E9A219D9618003F9DCE /* Main.storyboard */; };
 		217F4E9E219D9623003F9DCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217F4E9D219D9623003F9DCE /* Assets.xcassets */; };
 		217F4EA1219D9623003F9DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217F4E9F219D9623003F9DCE /* LaunchScreen.storyboard */; };
+		21936A7021B36B72005F0E3E /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21936A6F21B36B72005F0E3E /* TopViewController.swift */; };
+		21936A7221B38103005F0E3E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21936A7121B38102005F0E3E /* Post.swift */; };
+		B7EFC15296A4296647F704AE /* Pods_meiCale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2107DB17219FD2A900817ACC /* SelectPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPersonViewController.swift; sourceTree = "<group>"; };
+		2107DB19219FF1A400817ACC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2107DB1D219FF68500817ACC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2107DB2221A36ABE00817ACC /* BEMCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBox.h; sourceTree = "<group>"; };
+		2107DB2321A36ABE00817ACC /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimationManager.m; sourceTree = "<group>"; };
+		2107DB2421A36ABE00817ACC /* BEMPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPathManager.m; sourceTree = "<group>"; };
+		2107DB2521A36ABE00817ACC /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBoxGroup.m; sourceTree = "<group>"; };
+		2107DB2621A36ABE00817ACC /* BEMAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimationManager.h; sourceTree = "<group>"; };
+		2107DB2721A36ABE00817ACC /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCheckBox.m; sourceTree = "<group>"; };
+		2107DB2821A36ABE00817ACC /* BEMPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMPathManager.h; sourceTree = "<group>"; };
+		2107DB2921A36ABE00817ACC /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCheckBoxGroup.h; sourceTree = "<group>"; };
+		2107DB2E21A36AF300817ACC /* CheckBEM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckBEM.h; sourceTree = "<group>"; };
+		2107DB2F21A8D1FC00817ACC /* MyCustomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomeData.swift; sourceTree = "<group>"; };
+		2107DB3321A8E67E00817ACC /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
+		2107DB3421A8E67E00817ACC /* MyCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomCell.xib; sourceTree = "<group>"; };
+		2107DB3721A90F1A00817ACC /* topImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = topImage.jpg; sourceTree = "<group>"; };
 		217F4E93219D9618003F9DCE /* meiCale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meiCale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		217F4E96219D9618003F9DCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		217F4E98219D9618003F9DCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		217F4E98219D9618003F9DCE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		217F4E9B219D9618003F9DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		217F4E9D219D9623003F9DCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		217F4EA0219D9623003F9DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		217F4EA2219D9623003F9DCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21936A6F21B36B72005F0E3E /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		21936A7121B38102005F0E3E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		693FDAAA1B7FA8ADBCF8C721 /* Pods-meiCale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meiCale.release.xcconfig"; path = "Pods/Target Support Files/Pods-meiCale/Pods-meiCale.release.xcconfig"; sourceTree = "<group>"; };
+		8A541A2CFB66C4A93E0C7356 /* Pods-meiCale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meiCale.debug.xcconfig"; path = "Pods/Target Support Files/Pods-meiCale/Pods-meiCale.debug.xcconfig"; sourceTree = "<group>"; };
+		F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meiCale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +64,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7EFC15296A4296647F704AE /* Pods_meiCale.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2107DB2121A36ABE00817ACC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2107DB2221A36ABE00817ACC /* BEMCheckBox.h */,
+				2107DB2321A36ABE00817ACC /* BEMAnimationManager.m */,
+				2107DB2421A36ABE00817ACC /* BEMPathManager.m */,
+				2107DB2521A36ABE00817ACC /* BEMCheckBoxGroup.m */,
+				2107DB2621A36ABE00817ACC /* BEMAnimationManager.h */,
+				2107DB2721A36ABE00817ACC /* BEMCheckBox.m */,
+				2107DB2821A36ABE00817ACC /* BEMPathManager.h */,
+				2107DB2921A36ABE00817ACC /* BEMCheckBoxGroup.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		217F4E8A219D9617003F9DCE = {
 			isa = PBXGroup;
 			children = (
+				2107DB19219FF1A400817ACC /* Default-568h@2x.png */,
 				217F4E95219D9618003F9DCE /* meiCale */,
 				217F4E94219D9618003F9DCE /* Products */,
+				9CDF1821F034EBF3E5B5A6D8 /* Pods */,
+				C9DB572A4F4AAF5407B109AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +108,41 @@
 		217F4E95219D9618003F9DCE /* meiCale */ = {
 			isa = PBXGroup;
 			children = (
+				2107DB2121A36ABE00817ACC /* Classes */,
 				217F4E96219D9618003F9DCE /* AppDelegate.swift */,
-				217F4E98219D9618003F9DCE /* ViewController.swift */,
+				217F4E98219D9618003F9DCE /* LoginViewController.swift */,
+				2107DB17219FD2A900817ACC /* SelectPersonViewController.swift */,
+				2107DB2F21A8D1FC00817ACC /* MyCustomeData.swift */,
+				21936A7121B38102005F0E3E /* Post.swift */,
+				21936A6F21B36B72005F0E3E /* TopViewController.swift */,
+				2107DB3321A8E67E00817ACC /* MyCustomCell.swift */,
+				2107DB3421A8E67E00817ACC /* MyCustomCell.xib */,
+				2107DB2E21A36AF300817ACC /* CheckBEM.h */,
+				2107DB3721A90F1A00817ACC /* topImage.jpg */,
 				217F4E9A219D9618003F9DCE /* Main.storyboard */,
 				217F4E9D219D9623003F9DCE /* Assets.xcassets */,
 				217F4E9F219D9623003F9DCE /* LaunchScreen.storyboard */,
+				2107DB1D219FF68500817ACC /* GoogleService-Info.plist */,
 				217F4EA2219D9623003F9DCE /* Info.plist */,
 			);
 			path = meiCale;
+			sourceTree = "<group>";
+		};
+		9CDF1821F034EBF3E5B5A6D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A541A2CFB66C4A93E0C7356 /* Pods-meiCale.debug.xcconfig */,
+				693FDAAA1B7FA8ADBCF8C721 /* Pods-meiCale.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C9DB572A4F4AAF5407B109AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 217F4EA5219D9623003F9DCE /* Build configuration list for PBXNativeTarget "meiCale" */;
 			buildPhases = (
+				E84A1B55D687B9F10AA5D4DE /* [CP] Check Pods Manifest.lock */,
 				217F4E8F219D9618003F9DCE /* Sources */,
 				217F4E90219D9618003F9DCE /* Frameworks */,
 				217F4E91219D9618003F9DCE /* Resources */,
+				A2966CFAD94E8D6290ACE707 /* [CP] Embed Pods Frameworks */,
+				3D29A277930E0B935E71537F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,20 +207,114 @@
 			buildActionMask = 2147483647;
 			files = (
 				217F4EA1219D9623003F9DCE /* LaunchScreen.storyboard in Resources */,
+				2107DB1A219FF1A400817ACC /* Default-568h@2x.png in Resources */,
+				2107DB1E219FF68600817ACC /* GoogleService-Info.plist in Resources */,
+				2107DB3821A90F1A00817ACC /* topImage.jpg in Resources */,
 				217F4E9E219D9623003F9DCE /* Assets.xcassets in Resources */,
+				2107DB3621A8E67E00817ACC /* MyCustomCell.xib in Resources */,
 				217F4E9C219D9618003F9DCE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D29A277930E0B935E71537F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-meiCale/Pods-meiCale-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-meiCale/Pods-meiCale-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2966CFAD94E8D6290ACE707 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-meiCale/Pods-meiCale-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-meiCale/Pods-meiCale-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E84A1B55D687B9F10AA5D4DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-meiCale-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		217F4E8F219D9618003F9DCE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				217F4E99219D9618003F9DCE /* ViewController.swift in Sources */,
+				2107DB3521A8E67E00817ACC /* MyCustomCell.swift in Sources */,
+				21936A7221B38103005F0E3E /* Post.swift in Sources */,
+				2107DB2B21A36ABE00817ACC /* BEMPathManager.m in Sources */,
+				2107DB2D21A36ABE00817ACC /* BEMCheckBox.m in Sources */,
+				2107DB18219FD2A900817ACC /* SelectPersonViewController.swift in Sources */,
+				21936A7021B36B72005F0E3E /* TopViewController.swift in Sources */,
+				217F4E99219D9618003F9DCE /* LoginViewController.swift in Sources */,
+				2107DB2C21A36ABE00817ACC /* BEMCheckBoxGroup.m in Sources */,
 				217F4E97219D9618003F9DCE /* AppDelegate.swift in Sources */,
+				2107DB3021A8D1FC00817ACC /* MyCustomeData.swift in Sources */,
+				2107DB2A21A36ABE00817ACC /* BEMAnimationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,9 +456,11 @@
 		};
 		217F4EA6219D9623003F9DCE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A541A2CFB66C4A93E0C7356 /* Pods-meiCale.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P4PHY98KQ;
 				INFOPLIST_FILE = meiCale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -288,6 +468,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.littletips.meiCale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = meiCale/CheckBEM.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -295,9 +476,11 @@
 		};
 		217F4EA7219D9623003F9DCE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 693FDAAA1B7FA8ADBCF8C721 /* Pods-meiCale.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8P4PHY98KQ;
 				INFOPLIST_FILE = meiCale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,6 +488,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.littletips.meiCale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = meiCale/CheckBEM.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

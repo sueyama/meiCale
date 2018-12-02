@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import TwitterKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if TWTRTwitter.sharedInstance().application(app, open: url, options: options){
+            return true
+        }
+        return true
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
+        
+        TWTRTwitter.sharedInstance().start(withConsumerKey: "QIo4UvJ9T41XGXfA0ZZmQEW7o", consumerSecret: "SIqBLhgks5SmyXjhaz2RKwoe0rU1iBbkPpPBRros7Dw9GplG3k")
         // Override point for customization after application launch.
         return true
     }

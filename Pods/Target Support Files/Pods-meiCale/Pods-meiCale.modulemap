@@ -1,0 +1,6 @@
+framework module Pods_meiCale {
+  umbrella header "Pods-meiCale-umbrella.h"
+
+  export *
+  module * { export * }
+}
