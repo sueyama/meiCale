@@ -75,7 +75,7 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
         //チェックボックス
         //Tagに「3」を振っている
         let userCheckbox = cell.contentView.viewWithTag(3) as! BEMCheckBox
-        userCheckbox.tag = Int(self.myCustomeData[indexPath.row].number)!
+        userCheckbox.accessibilityValue = self.myCustomeData[indexPath.row].number
         userCheckbox.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.valueChanged)
 
         //userCheckbox.delegate = self as? BEMCheckBoxDelegate
@@ -86,9 +86,9 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
     
     @objc func onClickMySwicth(_ sender: BEMCheckBox){
         if sender.on {
-            selectNumber.append(String(sender.tag))
+            selectNumber.append(sender.accessibilityValue!)
         }else {
-            selectNumber.remove(at: selectNumber.index(of: String(sender.tag))!)
+            selectNumber.remove(at: selectNumber.index(of: sender.accessibilityValue!)!)
         }
     }
     

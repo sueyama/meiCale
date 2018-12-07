@@ -74,20 +74,6 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
 //
 //        //RoomIDを渡したい
 //        joinChatVC.roomID = self.seni_roomID
-//        //RoomNameを渡したい
-//        joinChatVC.roomName = self.seni_roomName
-//        //PathToImageを渡したい profile画像用URL
-//        joinChatVC.pathToImage = self.seni_pathToImage
-//        //roomAddmitNumを渡したい 募集人数
-//        joinChatVC.roomAddmitNum = self.seni_roomAddmitNum
-//        //roomDetailを渡したい ルーム詳細
-//        joinChatVC.roomDetail = self.seni_roomDetail
-//        //roomDetailを渡したい ルーム詳細
-//        joinChatVC.ownerUserID = self.seni_ownerUserID
-//        //memberNumを渡したい メンバー人数
-//        joinChatVC.memberNum = self.seni_memberNum
-//        //memberNumを渡したい メンバー人数
-//        joinChatVC.roomKey = self.seni_roomKey
         
     }
     
@@ -119,7 +105,35 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         let nameLabel = cell.contentView.viewWithTag(4) as! UILabel
         nameLabel.text = self.meiCaleList[indexPath.row].name
 
+        //お気にいり(スター)
+        //Tagに「5」を振っている
+        let likeButton = cell.contentView.viewWithTag(5) as! UIButton
+        let image = UIImage(named: "star")
+        likeButton.setImage(image, for: .normal)
+        likeButton.accessibilityValue = "nonselect"
+        likeButton.accessibilityHint = self.meiCaleList[indexPath.row].number
+        
+        likeButton.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.touchDown)
+        
+
         return cell
+    }
+    // 画像がタップされたら呼ばれる
+    @objc func onClickMySwicth(_ sender: UIButton){
+        print(sender.accessibilityHint!)
+        if sender.accessibilityValue! == "nonselect" {
+            
+            let image = UIImage(named: "star_selected")
+            sender.setImage(image, for: .normal)
+            sender.accessibilityValue = "selected"
+
+        } else {
+
+            let image = UIImage(named: "star")
+            sender.setImage(image, for: .normal)
+            sender.accessibilityValue = "nonselect"
+            
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

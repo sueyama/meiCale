@@ -9,6 +9,7 @@ target 'meiCale' do
    pod ‘Firebase/Firestore’
    pod ‘TwitterKit’
    pod 'SDWebImage'
+   pod 'DropdownMenu'
 
   # Pods for meiCale
 

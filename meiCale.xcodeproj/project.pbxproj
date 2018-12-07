@@ -25,6 +25,8 @@
 		217F4EA1219D9623003F9DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217F4E9F219D9623003F9DCE /* LaunchScreen.storyboard */; };
 		21936A7021B36B72005F0E3E /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21936A6F21B36B72005F0E3E /* TopViewController.swift */; };
 		21936A7221B38103005F0E3E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21936A7121B38102005F0E3E /* Post.swift */; };
+		21936A7821B73313005F0E3E /* humburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 21936A7721B73312005F0E3E /* humburger.png */; };
+		21936A7A21B73470005F0E3E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21936A7921B73470005F0E3E /* MenuViewController.swift */; };
 		B7EFC15296A4296647F704AE /* Pods_meiCale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		217F4EA2219D9623003F9DCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21936A6F21B36B72005F0E3E /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		21936A7121B38102005F0E3E /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		21936A7721B73312005F0E3E /* humburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humburger.png; sourceTree = "<group>"; };
+		21936A7921B73470005F0E3E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		693FDAAA1B7FA8ADBCF8C721 /* Pods-meiCale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meiCale.release.xcconfig"; path = "Pods/Target Support Files/Pods-meiCale/Pods-meiCale.release.xcconfig"; sourceTree = "<group>"; };
 		8A541A2CFB66C4A93E0C7356 /* Pods-meiCale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meiCale.debug.xcconfig"; path = "Pods/Target Support Files/Pods-meiCale/Pods-meiCale.debug.xcconfig"; sourceTree = "<group>"; };
 		F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meiCale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,10 +120,12 @@
 				21936A7121B38102005F0E3E /* Post.swift */,
 				21936A6F21B36B72005F0E3E /* TopViewController.swift */,
 				2107DB3321A8E67E00817ACC /* MyCustomCell.swift */,
+				21936A7921B73470005F0E3E /* MenuViewController.swift */,
 				2107DB3421A8E67E00817ACC /* MyCustomCell.xib */,
 				2107DB2E21A36AF300817ACC /* CheckBEM.h */,
 				2107DB3721A90F1A00817ACC /* topImage.jpg */,
 				217F4E9A219D9618003F9DCE /* Main.storyboard */,
+				21936A7721B73312005F0E3E /* humburger.png */,
 				217F4E9D219D9623003F9DCE /* Assets.xcassets */,
 				217F4E9F219D9623003F9DCE /* LaunchScreen.storyboard */,
 				2107DB1D219FF68500817ACC /* GoogleService-Info.plist */,
@@ -207,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				217F4EA1219D9623003F9DCE /* LaunchScreen.storyboard in Resources */,
+				21936A7821B73313005F0E3E /* humburger.png in Resources */,
 				2107DB1A219FF1A400817ACC /* Default-568h@2x.png in Resources */,
 				2107DB1E219FF68600817ACC /* GoogleService-Info.plist in Resources */,
 				2107DB3821A90F1A00817ACC /* topImage.jpg in Resources */,
@@ -245,6 +252,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-meiCale/Pods-meiCale-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/DropdownMenu/DropdownMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -261,6 +269,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropdownMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -306,6 +315,7 @@
 			files = (
 				2107DB3521A8E67E00817ACC /* MyCustomCell.swift in Sources */,
 				21936A7221B38103005F0E3E /* Post.swift in Sources */,
+				21936A7A21B73470005F0E3E /* MenuViewController.swift in Sources */,
 				2107DB2B21A36ABE00817ACC /* BEMPathManager.m in Sources */,
 				2107DB2D21A36ABE00817ACC /* BEMCheckBox.m in Sources */,
 				2107DB18219FD2A900817ACC /* SelectPersonViewController.swift in Sources */,
