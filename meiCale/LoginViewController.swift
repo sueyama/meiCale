@@ -12,8 +12,11 @@ import Firebase
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var poemLabel: KerningLabel!
-
+    @IBOutlet weak var startButton: CustomButton!
+    
     var username = String()
     
     override func viewDidLoad() {
@@ -44,13 +47,56 @@ class LoginViewController: UIViewController {
 
     func editUI(){
         super.viewDidLoad()
+        // 行間調整
         let LineSpaceStyle = NSMutableParagraphStyle()
         LineSpaceStyle.lineSpacing = 15.0
         let lineSpaceAttr = [NSAttributedStringKey.paragraphStyle: LineSpaceStyle]
         poemLabel.attributedText = NSMutableAttributedString(string: poemLabel.text!, attributes: lineSpaceAttr)
         poemLabel.textAlignment = .center
         poemLabel.center = self.view.center
-
+        
+        // フェードイン
+        titleLabel.fadeIn(type:.Normal)
+        captionLabel.fadeIn(type:.Normal)
+        poemLabel.fadeIn(type: .Slow)
+        startButton.fadeIn(type:.Normal)
     }
 }
 
+enum FadeType: TimeInterval {
+    case
+    Normal = 1,
+    Slow = 4
+}
+
+extension UIView {
+    func fadeIn(type: FadeType = .Normal, completed: (() -> ())? = nil) {
+        fadeIn(duration: type.rawValue, completed: completed)
+    }
+    
+    /** For typical purpose, use "public func fadeIn(type: FadeType = .Normal, completed: (() -> ())? = nil)" instead of this */
+    func fadeIn(duration: TimeInterval = FadeType.Slow.rawValue, completed: (() -> ())? = nil) {
+        alpha = 0
+        isHidden = false
+        UIView.animate(withDuration: duration,
+                       animations: {
+                        self.alpha = 1
+        }) { finished in
+            completed?()
+        }
+    }
+    func fadeOut(type: FadeType = .Normal, completed: (() -> ())? = nil) {
+        fadeOut(duration: type.rawValue, completed: completed)
+    }
+    /** For typical purpose, use "public func fadeOut(type: FadeType = .Normal, completed: (() -> ())? = nil)" instead of this */
+    func fadeOut(duration: TimeInterval = FadeType.Slow.rawValue, completed: (() -> ())? = nil) {
+        UIView.animate(withDuration: duration
+            , animations: {
+                self.alpha = 0
+        }) { [weak self] finished in
+            self?.isHidden = true
+            self?.alpha = 1
+            completed?()
+        }
+    }
+}

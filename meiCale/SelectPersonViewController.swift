@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestore
 import SDWebImage
 
-class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     @IBOutlet var memberCollection: UICollectionView!
     
@@ -21,7 +21,7 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        editUI()
         // delegateを設定する
         self.memberCollection.dataSource = self
         self.memberCollection.delegate = self
@@ -79,14 +79,21 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
         userCheckbox.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.valueChanged)
 
         //userCheckbox.delegate = self as? BEMCheckBoxDelegate
-
-
+        
+        // セルのUIを調整
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 5
+        cell.layer.masksToBounds = true
+        cell.fadeIn(type:.Normal)
         return cell        
     }
     
     @objc func onClickMySwicth(_ sender: BEMCheckBox){
         if sender.on {
             selectNumber.append(sender.accessibilityValue!)
+            //↓トップページに遷移できないので一時的に処置。後で削除
+            UserDefaults.standard.set(self.selectNumber, forKey: "famousUserList")
         }else {
             selectNumber.remove(at: selectNumber.index(of: sender.accessibilityValue!)!)
         }
@@ -104,15 +111,18 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Screenサイズに応じたセルサイズを返す
+    // UICollectionViewDelegateFlowLayoutの設定が必要
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        // 横方向のスペース調整
+        let horizontalSpace:CGFloat = 2
+        let cellSize:CGFloat = self.view.bounds.width/2 - horizontalSpace - 20
+        // 正方形で返すためにwidth,heightを同じにする
+        return CGSize(width: cellSize, height: cellSize)
     }
-    */
-
+    func editUI(){
+    }
 }
