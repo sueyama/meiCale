@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import SDWebImage
+import Lottie
 
 class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
@@ -19,9 +20,12 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     var selectNumber:[String] = []
     var day:String = String()
     
+    // アニメーションのviewを生成
+    let animationView = LOTAnimationView(name: "favourite_app_icon.json")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         topTableView.delegate = self
         topTableView.dataSource = self
 
@@ -37,6 +41,8 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
 
         //名言を取得するメソッド呼び出し
         getCalenderInfo()
+        editUI()
+
 
     }
 
@@ -109,26 +115,30 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         //Tagに「5」を振っている
         let likeButton = cell.contentView.viewWithTag(5) as! UIButton
         let image = UIImage(named: "star")
-        likeButton.setImage(image, for: .normal)
+        //likeButton.setImage(image, for: .normal)
         likeButton.accessibilityValue = "nonselect"
         likeButton.accessibilityHint = self.meiCaleList[indexPath.row].number
         
         likeButton.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.touchDown)
         
+        // スターをViewControllerに配置
+        self.view.addSubview(animationView)
+
 
         return cell
     }
     // 画像がタップされたら呼ばれる
     @objc func onClickMySwicth(_ sender: UIButton){
         print(sender.accessibilityHint!)
+
         if sender.accessibilityValue! == "nonselect" {
-            
+            animationView.play(fromProgress: 0, toProgress: 1,withCompletion: nil)
             let image = UIImage(named: "star_selected")
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "selected"
 
         } else {
-
+            animationView.play(fromProgress: 0, toProgress: 0,withCompletion: nil)
             let image = UIImage(named: "star")
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "nonselect"
@@ -165,5 +175,7 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         // Pass the selected object to the new view controller.
     }
     */
+    func editUI(){
 
+    }
 }

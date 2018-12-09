@@ -10,6 +10,7 @@ target 'meiCale' do
    pod ‘TwitterKit’
    pod 'SDWebImage'
    pod 'DropdownMenu'
+   pod 'lottie-ios'
 
   # Pods for meiCale
 
