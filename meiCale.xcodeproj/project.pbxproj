@@ -27,6 +27,8 @@
 		21936A7221B38103005F0E3E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21936A7121B38102005F0E3E /* Post.swift */; };
 		21936A7821B73313005F0E3E /* humburger.png in Resources */ = {isa = PBXBuildFile; fileRef = 21936A7721B73312005F0E3E /* humburger.png */; };
 		21936A7A21B73470005F0E3E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21936A7921B73470005F0E3E /* MenuViewController.swift */; };
+		A2028FE321BD15F2003E3018 /* KerningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2028FE221BD15F2003E3018 /* KerningLabel.swift */; };
+		A2028FE521BD16B8003E3018 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2028FE421BD16B8003E3018 /* CustomButton.swift */; };
 		B7EFC15296A4296647F704AE /* Pods_meiCale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +62,8 @@
 		21936A7921B73470005F0E3E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		693FDAAA1B7FA8ADBCF8C721 /* Pods-meiCale.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meiCale.release.xcconfig"; path = "Pods/Target Support Files/Pods-meiCale/Pods-meiCale.release.xcconfig"; sourceTree = "<group>"; };
 		8A541A2CFB66C4A93E0C7356 /* Pods-meiCale.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meiCale.debug.xcconfig"; path = "Pods/Target Support Files/Pods-meiCale/Pods-meiCale.debug.xcconfig"; sourceTree = "<group>"; };
+		A2028FE221BD15F2003E3018 /* KerningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KerningLabel.swift; sourceTree = "<group>"; };
+		A2028FE421BD16B8003E3018 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meiCale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,6 +97,7 @@
 		217F4E8A219D9617003F9DCE = {
 			isa = PBXGroup;
 			children = (
+				A2028FE221BD15F2003E3018 /* KerningLabel.swift */,
 				2107DB19219FF1A400817ACC /* Default-568h@2x.png */,
 				217F4E95219D9618003F9DCE /* meiCale */,
 				217F4E94219D9618003F9DCE /* Products */,
@@ -125,6 +130,7 @@
 				2107DB2E21A36AF300817ACC /* CheckBEM.h */,
 				2107DB3721A90F1A00817ACC /* topImage.jpg */,
 				217F4E9A219D9618003F9DCE /* Main.storyboard */,
+				A2028FE421BD16B8003E3018 /* CustomButton.swift */,
 				21936A7721B73312005F0E3E /* humburger.png */,
 				217F4E9D219D9623003F9DCE /* Assets.xcassets */,
 				217F4E9F219D9623003F9DCE /* LaunchScreen.storyboard */,
@@ -317,10 +323,12 @@
 				21936A7221B38103005F0E3E /* Post.swift in Sources */,
 				21936A7A21B73470005F0E3E /* MenuViewController.swift in Sources */,
 				2107DB2B21A36ABE00817ACC /* BEMPathManager.m in Sources */,
+				A2028FE521BD16B8003E3018 /* CustomButton.swift in Sources */,
 				2107DB2D21A36ABE00817ACC /* BEMCheckBox.m in Sources */,
 				2107DB18219FD2A900817ACC /* SelectPersonViewController.swift in Sources */,
 				21936A7021B36B72005F0E3E /* TopViewController.swift in Sources */,
 				217F4E99219D9618003F9DCE /* LoginViewController.swift in Sources */,
+				A2028FE321BD15F2003E3018 /* KerningLabel.swift in Sources */,
 				2107DB2C21A36ABE00817ACC /* BEMCheckBoxGroup.m in Sources */,
 				217F4E97219D9618003F9DCE /* AppDelegate.swift in Sources */,
 				2107DB3021A8D1FC00817ACC /* MyCustomeData.swift in Sources */,

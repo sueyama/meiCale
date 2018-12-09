@@ -12,11 +12,12 @@ import Firebase
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var poemLabel: KerningLabel!
+
     var username = String()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        editUI()
     }
 
     @IBAction func login(_ sender: Any) {
@@ -41,6 +42,15 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func editUI(){
+        super.viewDidLoad()
+        let LineSpaceStyle = NSMutableParagraphStyle()
+        LineSpaceStyle.lineSpacing = 15.0
+        let lineSpaceAttr = [NSAttributedStringKey.paragraphStyle: LineSpaceStyle]
+        poemLabel.attributedText = NSMutableAttributedString(string: poemLabel.text!, attributes: lineSpaceAttr)
+        poemLabel.textAlignment = .center
+        poemLabel.center = self.view.center
 
+    }
 }
 
