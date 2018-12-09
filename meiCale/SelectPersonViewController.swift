@@ -85,7 +85,7 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 5
         cell.layer.masksToBounds = true
-        cell.fadeIn(type:.Normal)
+        cell.fadeIn(duration:0.7)
         return cell        
     }
     

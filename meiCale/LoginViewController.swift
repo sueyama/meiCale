@@ -56,17 +56,17 @@ class LoginViewController: UIViewController {
         poemLabel.center = self.view.center
         
         // フェードイン
-        titleLabel.fadeIn(type:.Normal)
-        captionLabel.fadeIn(type:.Normal)
-        poemLabel.fadeIn(type: .Slow)
-        startButton.fadeIn(type:.Normal)
+        titleLabel.fadeIn(duration:4)
+        captionLabel.fadeIn(duration:4)
+        poemLabel.fadeIn(duration:4)
+        startButton.fadeIn(duration:4)
     }
 }
 
 enum FadeType: TimeInterval {
     case
-    Normal = 1,
-    Slow = 4
+    Normal = 0.5,
+    Slow = 2
 }
 
 extension UIView {
