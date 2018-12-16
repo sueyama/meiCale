@@ -52,6 +52,7 @@ class LoginViewController: UIViewController {
         LineSpaceStyle.lineSpacing = 15.0
         let lineSpaceAttr = [NSAttributedStringKey.paragraphStyle: LineSpaceStyle]
         poemLabel.attributedText = NSMutableAttributedString(string: poemLabel.text!, attributes: lineSpaceAttr)
+
         poemLabel.textAlignment = .center
         poemLabel.center = self.view.center
         

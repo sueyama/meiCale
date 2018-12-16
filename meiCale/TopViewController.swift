@@ -13,12 +13,18 @@ import Lottie
 
 class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
-    @IBOutlet var topTableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var topTableView: UITableView!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var meiCaleList = [Post]()
     
     var selectNumber:[String] = []
     var day:String = String()
+    var month:String = String()
+    var year:String = String()
     
     // アニメーションのviewを生成
     let animationView = LOTAnimationView(name: "favourite_app_icon.json")
@@ -32,13 +38,10 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         //選択した番号取得
         selectNumber = UserDefaults.standard.array(forKey: "famousUserList") as! [String]
         print(selectNumber)
-        // 今日の日付を取得
-        let date = Date()
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(identifier: "Asia/Tokyo")!
-        calendar.locale = Locale(identifier: "ja")
-        self.day = String(calendar.component(.day, from: date))
-
+        
+        // ヘッダーを設定
+        setHeader()
+        
         //名言を取得するメソッド呼び出し
         getCalenderInfo()
         editUI()
@@ -84,36 +87,36 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         
         //Cell1というIdentifierをつける
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath)
-        
-        //写真
-        //Tagに「1」を振っている
-        let imageView = cell.contentView.viewWithTag(1) as! UIImageView
-        //ownernameにタグを付ける
-        let imageUrl = URL(string:self.meiCaleList[indexPath.row].imageUrl as String)!
-        //Cashをとっている
-        imageView.sd_setImage(with: imageUrl, completed: nil)
-        
+
+
+
         //名言
-        //Tagに「2」を振っている
-        let roomNameLabel = cell.contentView.viewWithTag(2) as! UITextView
-        roomNameLabel.text = self.meiCaleList[indexPath.row].word
+        //Tagに「1」を振っている
+        let sayingLabel = cell.contentView.viewWithTag(1) as! UILabel
+        sayingLabel.text = self.meiCaleList[indexPath.row].word
         
-        //日にち
-        //Tagに「3」を振っている
-        let dateLabel = cell.contentView.viewWithTag(3) as! UILabel
-        dateLabel.text = self.day
 
         //名前
-        //Tagに「4」を振っている
-        let nameLabel = cell.contentView.viewWithTag(4) as! UILabel
+        //Tagに「2」を振っている
+        let nameLabel = cell.contentView.viewWithTag(2) as! UILabel
         nameLabel.text = self.meiCaleList[indexPath.row].name
 
+//        //写真
+//        //Tagに「3」を振っている
+//        let imageView = cell.contentView.viewWithTag(3) as! UIImageView
+//        //ownernameにタグを付ける
+//        let imageUrl = URL(string:self.meiCaleList[indexPath.row].imageUrl as String)!
+//        //Cashをとっている
+//        imageView.sd_setImage(with: imageUrl, completed: nil)
+        
+
         //お気にいり(スター)
-        //Tagに「5」を振っている
-        let likeButton = cell.contentView.viewWithTag(5) as! UIButton
+        //Tagに「4」を振っている
+        let likeButton = cell.contentView.viewWithTag(4) as! UIButton
         let image = UIImage(named: "star")
         //likeButton.setImage(image, for: .normal)
         likeButton.accessibilityValue = "nonselect"
@@ -178,4 +181,43 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     func editUI(){
 
     }
+    func setHeader(){
+        getDate()
+        yearLabel.text = self.year
+        let monthEnglish = editMonth()
+        monthLabel.text = monthEnglish
+        dateLabel.text = self.day
+    }
+    // 今日の年月日を取得し格納
+    func getDate(){
+        let date = Date()
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: "Asia/Tokyo")!
+        calendar.locale = Locale(identifier: "ja")
+        self.day = String(calendar.component(.day, from: date))
+        self.month = String(calendar.component(.month, from: date))
+        self.year = String(calendar.component(.year, from: date))
+        
+    }
+    func editMonth() -> String{
+        
+        var monthEnglish:String = String()
+        switch (month) {
+            case "1": monthEnglish = "January"; break;
+            case "2": monthEnglish = "February"; break;
+            case "3": monthEnglish = "March"; break;
+            case "4": monthEnglish = "April"; break;
+            case "5": monthEnglish = "May"; break;
+            case "6": monthEnglish = "June"; break;
+            case "7": monthEnglish = "July"; break;
+            case "8": monthEnglish = "August"; break;
+            case "9": monthEnglish = "September"; break;
+            case "10": monthEnglish = "October"; break;
+            case "11": monthEnglish = "November"; break;
+            case "12": monthEnglish = "December"; break;
+            default: monthEnglish = "NaN"; break;
+        }
+        return monthEnglish
+    }
+
 }
