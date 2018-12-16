@@ -91,9 +91,7 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         
         //Cell1というIdentifierをつける
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath)
-
-
-
+        cell.layer.backgroundColor = UIColor.lightGray.cgColor
         //名言
         //Tagに「1」を振っている
         let sayingLabel = cell.contentView.viewWithTag(1) as! UILabel
@@ -127,6 +125,14 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         // スターをViewControllerに配置
         self.view.addSubview(animationView)
 
+        //外枠
+        //Tagに「5」を振っている
+        let outerFlame = cell.contentView.viewWithTag(5) as! UIView
+        outerFlame.layer.borderColor = UIColor.lightGray.cgColor
+        outerFlame.layer.borderWidth = 1
+        outerFlame.layer.cornerRadius = 5
+        outerFlame.layer.masksToBounds = true
+        
 
         return cell
     }
@@ -179,7 +185,6 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     }
     */
     func editUI(){
-
     }
     func setHeader(){
         getDate()
