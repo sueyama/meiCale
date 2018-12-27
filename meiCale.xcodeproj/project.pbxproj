@@ -30,7 +30,6 @@
 		A2028FE321BD15F2003E3018 /* KerningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2028FE221BD15F2003E3018 /* KerningLabel.swift */; };
 		A2028FE521BD16B8003E3018 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2028FE421BD16B8003E3018 /* CustomButton.swift */; };
 		A239EA9621BD65D300EC8DCF /* favourite_app_icon.json in Resources */ = {isa = PBXBuildFile; fileRef = A239EA9521BD65D300EC8DCF /* favourite_app_icon.json */; };
-		A239EA9821BD67CB00EC8DCF /* Favourite.json in Resources */ = {isa = PBXBuildFile; fileRef = A239EA9721BD67CB00EC8DCF /* Favourite.json */; };
 		B7EFC15296A4296647F704AE /* Pods_meiCale.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +66,6 @@
 		A2028FE221BD15F2003E3018 /* KerningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KerningLabel.swift; sourceTree = "<group>"; };
 		A2028FE421BD16B8003E3018 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A239EA9521BD65D300EC8DCF /* favourite_app_icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favourite_app_icon.json; sourceTree = "<group>"; };
-		A239EA9721BD67CB00EC8DCF /* Favourite.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Favourite.json; path = ../../../Downloads/favourite_star/Favourite.json; sourceTree = "<group>"; };
 		F686AE20F0BB9A9C3491E0FA /* Pods_meiCale.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_meiCale.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,7 +129,6 @@
 				2107DB3321A8E67E00817ACC /* MyCustomCell.swift */,
 				21936A7921B73470005F0E3E /* MenuViewController.swift */,
 				A239EA9521BD65D300EC8DCF /* favourite_app_icon.json */,
-				A239EA9721BD67CB00EC8DCF /* Favourite.json */,
 				2107DB3421A8E67E00817ACC /* MyCustomCell.xib */,
 				2107DB2E21A36AF300817ACC /* CheckBEM.h */,
 				2107DB3721A90F1A00817ACC /* topImage.jpg */,
@@ -227,7 +224,6 @@
 				217F4EA1219D9623003F9DCE /* LaunchScreen.storyboard in Resources */,
 				21936A7821B73313005F0E3E /* humburger.png in Resources */,
 				A239EA9621BD65D300EC8DCF /* favourite_app_icon.json in Resources */,
-				A239EA9821BD67CB00EC8DCF /* Favourite.json in Resources */,
 				2107DB1A219FF1A400817ACC /* Default-568h@2x.png in Resources */,
 				2107DB1E219FF68600817ACC /* GoogleService-Info.plist in Resources */,
 				2107DB3821A90F1A00817ACC /* topImage.jpg in Resources */,

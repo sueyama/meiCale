@@ -91,25 +91,24 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         
         //Cell1というIdentifierをつける
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath)
-        cell.layer.backgroundColor = UIColor.lightGray.cgColor
+        //背景色をグレーに設定
+        cell.contentView.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
         //名言
         //Tagに「1」を振っている
         let sayingLabel = cell.contentView.viewWithTag(1) as! UILabel
         sayingLabel.text = self.meiCaleList[indexPath.row].word
-        
-
         //名前
         //Tagに「2」を振っている
         let nameLabel = cell.contentView.viewWithTag(2) as! UILabel
         nameLabel.text = self.meiCaleList[indexPath.row].name
 
-//        //写真
-//        //Tagに「3」を振っている
-//        let imageView = cell.contentView.viewWithTag(3) as! UIImageView
-//        //ownernameにタグを付ける
-//        let imageUrl = URL(string:self.meiCaleList[indexPath.row].imageUrl as String)!
-//        //Cashをとっている
-//        imageView.sd_setImage(with: imageUrl, completed: nil)
+        //写真
+        //Tagに「3」を振っている
+        let imageView = cell.contentView.viewWithTag(3) as! UIImageView
+
+        let imageUrl = URL(string:self.meiCaleList[indexPath.row].imageUrl as String)!
+        //Cashをとっている
+        imageView.sd_setImage(with: imageUrl, completed: nil)
         
 
         //お気にいり(スター)
@@ -163,10 +162,10 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         return self.meiCaleList.count
     }
     
-    // Cell の高さを60にする
+    // Cell の高さを画面サイズに応じて調整する
     func tableView(_ table: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.size.height
+        return self.view.frame.size.height - 170
     }
     
     override func didReceiveMemoryWarning() {
