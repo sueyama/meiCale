@@ -19,6 +19,9 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    //let animationView = LOTAnimationView(name: "favourite_app_icon.json")
+
+    
     var meiCaleList = [Post]()
     
     var selectNumber:[String] = []
@@ -26,15 +29,14 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     var month:String = String()
     var year:String = String()
     
-    // アニメーションのviewを生成
-    let animationView = LOTAnimationView(name: "favourite_app_icon.json")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         topTableView.delegate = self
         topTableView.dataSource = self
-
+        
         //選択した番号取得
         selectNumber = UserDefaults.standard.array(forKey: "famousUserList") as! [String]
         print(selectNumber)
@@ -68,6 +70,15 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
             }
         }
     }
+
+    override func prepare(for segue:UIStoryboardSegue,sender:Any?){
+        
+        //        let joinChatVC = segue.destination as! JoinChatViewController
+        //
+        //        //RoomIDを渡したい
+        //        joinChatVC.roomID = self.seni_roomID
+        
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -76,27 +87,32 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         
     }
     
-    
-    override func prepare(for segue:UIStoryboardSegue,sender:Any?){
-        
-//        let joinChatVC = segue.destination as! JoinChatViewController
-//
-//        //RoomIDを渡したい
-//        joinChatVC.roomID = self.seni_roomID
-        
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        
         //Cell1というIdentifierをつける
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath)
+        // 選択時の色をなしに設定
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         //背景色をグレーに設定
         cell.contentView.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
         //名言
         //Tagに「1」を振っている
         let sayingLabel = cell.contentView.viewWithTag(1) as! UILabel
         sayingLabel.text = self.meiCaleList[indexPath.row].word
+        
+        //フォントサイズを調整
+        sayingLabel.adjustsFontSizeToFitWidth = true
+        sayingLabel.minimumScaleFactor = 0.3
+
+        // 行間調整
+//        let LineSpaceStyle = NSMutableParagraphStyle()
+//        LineSpaceStyle.lineSpacing = 10.0
+//        let lineSpaceAttr = [NSAttributedStringKey.paragraphStyle: LineSpaceStyle]
+//        sayingLabel.attributedText = NSMutableAttributedString(string: sayingLabel.text!, attributes: lineSpaceAttr)
+        
+
+
+
         //名前
         //Tagに「2」を振っている
         let nameLabel = cell.contentView.viewWithTag(2) as! UILabel
@@ -109,21 +125,31 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         let imageUrl = URL(string:self.meiCaleList[indexPath.row].imageUrl as String)!
         //Cashをとっている
         imageView.sd_setImage(with: imageUrl, completed: nil)
-        
 
         //お気にいり(スター)
         //Tagに「4」を振っている
         let likeButton = cell.contentView.viewWithTag(4) as! UIButton
+        
         let image = UIImage(named: "star")
-        //likeButton.setImage(image, for: .normal)
+
+        likeButton.setImage(image, for: .normal)
         likeButton.accessibilityValue = "nonselect"
         likeButton.accessibilityHint = self.meiCaleList[indexPath.row].number
         
         likeButton.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.touchDown)
         
-        // スターをViewControllerに配置
-        self.view.addSubview(animationView)
+        //let buttonHeight = likeButton.bounds.height
+        //let buttonWidth = likeButton.bounds.width
+        // ★のアニメーション
+        //animationView.frame = CGRect(x:0, y:0, width:buttonWidth, height:buttonHeight)
 
+        //likeButton.addSubview(animationView)
+        
+        //Tagに「6」を振っている
+       //let starView = cell.contentView.viewWithTag(6) as! UIView
+        //starView.addSubview(animationView)
+
+        
         //外枠
         //Tagに「5」を振っている
         let outerFlame = cell.contentView.viewWithTag(5) as! UIView
@@ -131,7 +157,6 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         outerFlame.layer.borderWidth = 1
         outerFlame.layer.cornerRadius = 5
         outerFlame.layer.masksToBounds = true
-        
 
         return cell
     }
@@ -140,17 +165,17 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         print(sender.accessibilityHint!)
 
         if sender.accessibilityValue! == "nonselect" {
-            animationView.play(fromProgress: 0, toProgress: 1,withCompletion: nil)
+//            animationView.play(fromProgress: 0, toProgress: 1,withCompletion: nil)
             let image = UIImage(named: "star_selected")
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "selected"
 
         } else {
-            animationView.play(fromProgress: 0, toProgress: 0,withCompletion: nil)
+//            animationView.play(fromProgress: 0, toProgress: 0,withCompletion: nil)
             let image = UIImage(named: "star")
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "nonselect"
-            
+
         }
     }
     
