@@ -92,18 +92,44 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
     @objc func onClickMySwicth(_ sender: BEMCheckBox){
         if sender.on {
             selectNumber.append(sender.accessibilityValue!)
-            //↓トップページに遷移できないので一時的に処置。後で削除
-            UserDefaults.standard.set(self.selectNumber, forKey: "famousUserList")
         }else {
             selectNumber.remove(at: selectNumber.index(of: sender.accessibilityValue!)!)
         }
     }
     
     @IBAction func selectFinish(_ sender: Any) {
-        //選択された時に選択されているCellのnumberを保存
-        UserDefaults.standard.set(self.selectNumber, forKey: "famousUserList")
         
         self.performSegue(withIdentifier: "top", sender: nil)
+
+    }
+    
+    // 人物選択されていないの場合、画面遷移しない
+    /// 画面遷移するかの判定処理
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if self.selectNumber.isEmpty {
+            let errorMassage = "人物を１人以上選択して下さい"
+            showErrorMassage(massage : errorMassage)
+            
+            return false;
+            
+        }
+        return true;
+    }
+
+    /// 画面遷移時の処理
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //選択された時に選択されているCellのnumberを保存
+        UserDefaults.standard.set(self.selectNumber, forKey: "famousUserList")
+    }
+    
+    func showErrorMassage(massage : String){
+        // UIAlertControllerを生成
+        let alui = UIAlertController(title: "入力エラー", message: massage, preferredStyle: UIAlertControllerStyle.alert)
+        // 選択肢としてContinueボタンを用意する
+        let btn = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alui.addAction(btn)
+        present(alui, animated: true, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
