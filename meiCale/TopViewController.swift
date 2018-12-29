@@ -10,8 +10,9 @@ import UIKit
 import FirebaseFirestore
 import SDWebImage
 import Lottie
+import UserNotifications
 
-class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSource{
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var topTableView: UITableView!
@@ -19,9 +20,7 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    //let animationView = LOTAnimationView(name: "favourite_app_icon.json")
 
-    
     var meiCaleList = [Post]()
     
     var selectNumber:[String] = []
@@ -29,11 +28,12 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     var month:String = String()
     var year:String = String()
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setAlert()
+
         topTableView.delegate = self
         topTableView.dataSource = self
         
@@ -50,7 +50,46 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
 
 
     }
+    func setAlert(){
+        // 通知内容の設定
+        let content = UNMutableNotificationContent()
+        content.body = "今日の名言が更新されました！"
+        content.sound = UNNotificationSound.default()
 
+        // 通知許可ダイアログを表示
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) {
+            (granted, error) in
+        }
+        
+        //通知テスト用トリガー
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats:true)
+        
+        //毎日9時に通知
+        //        let date = DateComponents(hour:9)
+        //        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
+        //
+        
+        let request = UNNotificationRequest(identifier: " Identifier", content: content, trigger: trigger)
+        
+        // 通知を登録
+        center.add(request) { (error : Error?) in
+            if error != nil {
+                // エラー処理
+            }
+        }
+        
+        // 理想
+        //content.title = "今日の名言"
+        //content.body = "DBから値取得して表示したいけど、どこに書けば良いかわからないンゴ"
+
+    }
+    
+    // フォアグラウンドの場合でも通知を表示する
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
     //ルームのデータ取得メソッド
     func getCalenderInfo(){
         
@@ -103,21 +142,14 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         //フォントサイズを調整
         sayingLabel.adjustsFontSizeToFitWidth = true
         sayingLabel.minimumScaleFactor = 0.3
-
-        // 行間調整
-//        let LineSpaceStyle = NSMutableParagraphStyle()
-//        LineSpaceStyle.lineSpacing = 10.0
-//        let lineSpaceAttr = [NSAttributedStringKey.paragraphStyle: LineSpaceStyle]
-//        sayingLabel.attributedText = NSMutableAttributedString(string: sayingLabel.text!, attributes: lineSpaceAttr)
         
-
-
-
         //名前
         //Tagに「2」を振っている
         let nameLabel = cell.contentView.viewWithTag(2) as! UILabel
         nameLabel.text = self.meiCaleList[indexPath.row].name
 
+
+        
         //写真
         //Tagに「3」を振っている
         let imageView = cell.contentView.viewWithTag(3) as! UIImageView
@@ -138,18 +170,6 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         
         likeButton.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.touchDown)
         
-        //let buttonHeight = likeButton.bounds.height
-        //let buttonWidth = likeButton.bounds.width
-        // ★のアニメーション
-        //animationView.frame = CGRect(x:0, y:0, width:buttonWidth, height:buttonHeight)
-
-        //likeButton.addSubview(animationView)
-        
-        //Tagに「6」を振っている
-       //let starView = cell.contentView.viewWithTag(6) as! UIView
-        //starView.addSubview(animationView)
-
-        
         //外枠
         //Tagに「5」を振っている
         let outerFlame = cell.contentView.viewWithTag(5) as! UIView
@@ -165,13 +185,11 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         print(sender.accessibilityHint!)
 
         if sender.accessibilityValue! == "nonselect" {
-//            animationView.play(fromProgress: 0, toProgress: 1,withCompletion: nil)
             let image = UIImage(named: "star_selected")
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "selected"
 
         } else {
-//            animationView.play(fromProgress: 0, toProgress: 0,withCompletion: nil)
             let image = UIImage(named: "star")
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "nonselect"
@@ -250,3 +268,22 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     }
 
 }
+
+/* ゴミ置き場 あとで削除
+let buttonHeight = likeButton.bounds.height
+let buttonWidth = likeButton.bounds.width
+// ★のアニメーション
+animationView.frame = CGRect(x:0, y:0, width:buttonWidth, height:buttonHeight)
+
+likeButton.addSubview(animationView)
+
+//Tagに「6」を振っている
+let starView = cell.contentView.viewWithTag(6) as! UIView
+starView.addSubview(animationView)
+
+let animationView = LOTAnimationView(name: "favourite_app_icon.json")
+ 
+animationView.play(fromProgress: 0, toProgress: 1,withCompletion: nil)
+animationView.play(fromProgress: 0, toProgress: 0,withCompletion: nil)
+
+*/

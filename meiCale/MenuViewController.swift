@@ -12,6 +12,7 @@ class MenuViewController: UIViewController {
 
     @IBOutlet var menuView: UIView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,6 +78,17 @@ class MenuViewController: UIViewController {
         })
     }
     
+    @IBAction func alertSettingButtonTouchDown(_ sender: Any) {
+        print("cliked!")
+        // OSの通知設定画面へ遷移
+        if let url = URL(string:"App-Prefs:root=NOTIFICATIONS_ID&path={com.littletips.meiCale}") {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

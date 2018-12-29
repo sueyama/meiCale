@@ -376,6 +376,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="alertSettingButtonTouchDown:" destination="cxl-sM-Y7R" eventType="touchDown" id="V6Z-0G-DUp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c1P-9I-bMX">
                                         <rect key="frame" x="43" y="221" width="216" height="37"/>
