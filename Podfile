@@ -11,6 +11,7 @@ target 'meiCale' do
    pod 'SDWebImage'
    pod 'DropdownMenu'
    pod 'lottie-ios'
+   pod 'TwitterKit'
 
   # Pods for meiCale
 
