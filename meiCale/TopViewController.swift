@@ -20,7 +20,8 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-
+    let timerNotificationIdentifier = "id1"
+    
     var meiCaleList = [Post]()
     
     var selectNumber:[String] = []
@@ -31,8 +32,6 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setAlert()
 
         topTableView.delegate = self
         topTableView.dataSource = self
@@ -48,20 +47,46 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         getCalenderInfo()
         editUI()
 
-
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setAlert()
+    }
+    
     func setAlert(){
+        //通知飛ばしていいかの許可
+        
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            if(settings.authorizationStatus == .authorized){
+                //知らせる
+                self.push()
+            }else{
+                UNUserNotificationCenter.current().requestAuthorization(options: [.sound,.badge,.alert], completionHandler: { (granted, error) in
+                    if let error = error{
+                        print(error)
+                    }else{
+                        if(granted){
+                            self.push()
+                        }
+                    }
+                })
+            }
+        }
+    }
+    
+    func push(){
         // 通知内容の設定
         let content = UNMutableNotificationContent()
-        content.body = "今日の名言が更新されました！"
+        content.title = "今日の名言が更新されました！"
+        content.subtitle = self.meiCaleList[0].name
+        content.body = self.meiCaleList[0].word
         content.sound = UNNotificationSound.default()
-
-        // 通知許可ダイアログを表示
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) {
-            (granted, error) in
-        }
         
+        let timerIconURL = Bundle.main.url(forResource: "topImage", withExtension: "jpg")
+        //let timerIconURL = URL(string:self.meiCaleList[0].imageUrl as String)
+        let attach = try! UNNotificationAttachment(identifier: timerNotificationIdentifier, url: timerIconURL!, options: nil)
+        
+        content.attachments.append(attach)
         //通知テスト用トリガー
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats:true)
         
@@ -70,19 +95,16 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         //        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
         //
         
-        let request = UNNotificationRequest(identifier: " Identifier", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: timerNotificationIdentifier, content: content, trigger: trigger)
         
-        // 通知を登録
-        center.add(request) { (error : Error?) in
-            if error != nil {
-                // エラー処理
+        UNUserNotificationCenter.current().add(request) { (error) in
+            //エラー処理
+            if let error = error{
+                print(error)
+            }else{
+                print("配信されました！")
             }
         }
-        
-        // 理想
-        //content.title = "今日の名言"
-        //content.body = "DBから値取得して表示したいけど、どこに書けば良いかわからないンゴ"
-
     }
     
     // フォアグラウンドの場合でも通知を表示する
