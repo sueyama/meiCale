@@ -38,7 +38,6 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         
         //選択した番号取得
         selectNumber = UserDefaults.standard.array(forKey: "famousUserList") as! [String]
-        print(selectNumber)
         
         // ヘッダーを設定
         setHeader()
@@ -55,7 +54,6 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     
     func setAlert(){
         //通知飛ばしていいかの許可
-        
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             if(settings.authorizationStatus == .authorized){
                 //知らせる
@@ -88,12 +86,11 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         
         content.attachments.append(attach)
         //通知テスト用トリガー
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats:true)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats:true)
         
         //毎日9時に通知
-        //        let date = DateComponents(hour:9)
-        //        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
-        //
+        let date = DateComponents(hour:9)
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
         
         let request = UNNotificationRequest(identifier: timerNotificationIdentifier, content: content, trigger: trigger)
         
@@ -123,9 +120,11 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
             } else {
                 for document in (querySnapshot?.documents)!{
                     if self.selectNumber.contains((document.data()["number"] as? String)!){
-                        self.meiCaleList.append(Post(number: (document.data()["number"] as? String)!,imageUrl:(document.data()["imageUrl"] as? String)!,word:(document.data()["word"] as? String)!,name:(document.data()["name"] as? String)!))
-                        
-                        self.topTableView.reloadData()
+                        if self.day == document.data()["day"] as? String{
+                            self.meiCaleList.append(Post(number: (document.data()["number"] as? String)!,imageUrl:(document.data()["imageUrl"] as? String)!,word:(document.data()["word"] as? String)!,name:(document.data()["name"] as? String)!,day:(document.data()["day"] as? String)!))
+                            
+                            self.topTableView.reloadData()
+                        }
                     }
                 }
             }
@@ -187,7 +186,7 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         let image = UIImage(named: "star")
 
         likeButton.setImage(image, for: .normal)
-        likeButton.accessibilityValue = "nonselect"
+        likeButton.accessibilityValue = "select"
         likeButton.accessibilityHint = self.meiCaleList[indexPath.row].number
         
         likeButton.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.touchDown)
@@ -204,18 +203,23 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     }
     // 画像がタップされたら呼ばれる
     @objc func onClickMySwicth(_ sender: UIButton){
-        print(sender.accessibilityHint!)
 
         if sender.accessibilityValue! == "nonselect" {
             let image = UIImage(named: "star_selected")
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "selected"
+            var favoriteWord = UserDefaults.standard.array(forKey: "favoriteWord") as! [(man: String, day: String)]
+            favoriteWord.append((man: sender.accessibilityHint, day: self.day) as! (man: String, day: String))
+            UserDefaults.standard.set(favoriteWord, forKey: "favoriteWord")
 
         } else {
             let image = UIImage(named: "star")
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "nonselect"
 
+            var favoriteWord = UserDefaults.standard.array(forKey: "favoriteWord") as! [(man: String, day: String)]
+            favoriteWord = favoriteWord.filter { !($0.man == sender.accessibilityHint && $0.day == self.day) }
+            UserDefaults.standard.set(favoriteWord, forKey: "favoriteWord")
         }
     }
     

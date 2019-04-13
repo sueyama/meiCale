@@ -14,12 +14,14 @@ class Post: NSObject {
     var word:String = String()
     var imageUrl:String = String()
     var name:String = String()
+    var day:String = String()
     
-    init(number: String, imageUrl: String?, word: String, name: String) {
+    init(number: String, imageUrl: String?, word: String, name: String, day: String) {
         self.number = number
         self.imageUrl = imageUrl!
         self.word = word
         self.name = name
+        self.day = day
     }
 
 }

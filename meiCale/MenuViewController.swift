@@ -78,6 +78,26 @@ class MenuViewController: UIViewController {
         })
     }
     
+    
+    @IBAction func favariteList(_ sender: Any) {
+        //お気に入り画面へ
+        self.performSegue(withIdentifier: "favarite", sender: nil)
+    }
+    
+    
+    @IBAction func manChoice(_ sender: Any) {
+        //人物選択画面へ
+        self.performSegue(withIdentifier: "choice", sender: nil)
+    }
+    
+    
+    @IBAction func tutiChange(_ sender: Any) {
+        let url = URL(string: "https://www.teijin.co.jp/privacy/")
+        // iOS 10以降利用可能
+        UIApplication.shared.open(url!)
+    }
+    
+    
     @IBAction func alertSettingButtonTouchDown(_ sender: Any) {
         print("cliked!")
         // OSの通知設定画面へ遷移
