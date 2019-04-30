@@ -87,11 +87,11 @@ class MenuViewController: UIViewController {
     
     @IBAction func manChoice(_ sender: Any) {
         //人物選択画面へ
-        self.performSegue(withIdentifier: "choice", sender: nil)
+        self.performSegue(withIdentifier: "choiceBack", sender: nil)
     }
     
     
-    @IBAction func tutiChange(_ sender: Any) {
+    @IBAction func infoPolicy(_ sender: Any) {
         let url = URL(string: "https://www.teijin.co.jp/privacy/")
         // iOS 10以降利用可能
         UIApplication.shared.open(url!)

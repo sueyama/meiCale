@@ -15,11 +15,12 @@ import UserNotifications
 
 class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var topTableView: UITableView!
     
     var meiCaleList = [Post]()
     
-    var favoriteWord:[(man: String, day: String)] = []
+    var favoriteWord:[[String: String]] = []
     var day:String = String()
     var month:String = String()
     var year:String = String()
@@ -33,7 +34,7 @@ class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableVi
         topTableView.dataSource = self
         
         //お気に入り名言
-        favoriteWord = UserDefaults.standard.array(forKey: "favoriteWord") as! [(man: String, day: String)]
+        favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
         
         // ヘッダーを設定
         setHeader()
@@ -58,7 +59,7 @@ class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableVi
                 print("Error getting documents: \(err)")
             } else {
                 for document in (querySnapshot?.documents)!{
-                    if let ok =  self.favoriteWord.index(where: {($0.man == document.data()["number"] as? String && $0.day == document.data()["day"] as? String)}){
+                    if let ok =  self.favoriteWord.index(where: {($0["man"] == document.data()["number"] as? String && $0["day"] == document.data()["day"] as? String)}){
                         self.meiCaleList.append(Post(number: (document.data()["number"] as? String)!,imageUrl:(document.data()["imageUrl"] as? String)!,word:(document.data()["word"] as? String)!,name:(document.data()["name"] as? String)!,day:(document.data()["day"] as? String)!))
                         
                         self.topTableView.reloadData()
@@ -121,10 +122,10 @@ class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableVi
         //Tagに「4」を振っている
         let likeButton = cell.contentView.viewWithTag(4) as! UIButton
         
-        let image = UIImage(named: "star")
+        let image = UIImage(named: "star_selected")
         
         likeButton.setImage(image, for: .normal)
-        likeButton.accessibilityValue = "nonselect"
+        likeButton.accessibilityValue = "select"
         likeButton.accessibilityHint = self.meiCaleList[indexPath.row].number
         likeButton.accessibilityLabel = self.meiCaleList[indexPath.row].day
         
@@ -147,9 +148,12 @@ class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableVi
         if sender.accessibilityValue! == "nonselect" {
             let image = UIImage(named: "star_selected")
             sender.setImage(image, for: .normal)
-            sender.accessibilityValue = "selected"
-            var favoriteWord = UserDefaults.standard.array(forKey: "favoriteWord") as! [(man: String, day: String)]
-            favoriteWord.append((man: sender.accessibilityHint, day: sender.accessibilityLabel) as! (man: String, day: String))
+            sender.accessibilityValue = "select"
+            if UserDefaults.standard.array(forKey: "favoriteWord") != nil {
+                favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
+            }
+            favoriteWord.append(["man": sender.accessibilityHint!, "day": self.day])
+            
             UserDefaults.standard.set(favoriteWord, forKey: "favoriteWord")
             
         } else {
@@ -157,8 +161,11 @@ class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableVi
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "nonselect"
             
-            var favoriteWord = UserDefaults.standard.array(forKey: "favoriteWord") as! [(man: String, day: String)]
-            favoriteWord = favoriteWord.filter { !($0.man == sender.accessibilityHint && $0.day == sender.accessibilityLabel) }
+            if UserDefaults.standard.array(forKey: "favoriteWord") != nil {
+                favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
+            }
+            favoriteWord = favoriteWord.filter { !($0["man"] == sender.accessibilityHint && $0["day"] == self.day) }
+            
             UserDefaults.standard.set(favoriteWord, forKey: "favoriteWord")
 
         }

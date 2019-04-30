@@ -29,6 +29,7 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     var month:String = String()
     var year:String = String()
     
+    var favoriteWord:[[String: String]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -186,7 +187,7 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         let image = UIImage(named: "star")
 
         likeButton.setImage(image, for: .normal)
-        likeButton.accessibilityValue = "select"
+        likeButton.accessibilityValue = "nonselect"
         likeButton.accessibilityHint = self.meiCaleList[indexPath.row].number
         
         likeButton.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.touchDown)
@@ -207,9 +208,12 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         if sender.accessibilityValue! == "nonselect" {
             let image = UIImage(named: "star_selected")
             sender.setImage(image, for: .normal)
-            sender.accessibilityValue = "selected"
-            var favoriteWord = UserDefaults.standard.array(forKey: "favoriteWord") as! [(man: String, day: String)]
-            favoriteWord.append((man: sender.accessibilityHint, day: self.day) as! (man: String, day: String))
+            sender.accessibilityValue = "select"
+            if UserDefaults.standard.array(forKey: "favoriteWord") != nil {
+                favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
+            }
+            favoriteWord.append(["man": sender.accessibilityHint!, "day": self.day])
+            
             UserDefaults.standard.set(favoriteWord, forKey: "favoriteWord")
 
         } else {
@@ -217,8 +221,11 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
             sender.setImage(image, for: .normal)
             sender.accessibilityValue = "nonselect"
 
-            var favoriteWord = UserDefaults.standard.array(forKey: "favoriteWord") as! [(man: String, day: String)]
-            favoriteWord = favoriteWord.filter { !($0.man == sender.accessibilityHint && $0.day == self.day) }
+            if UserDefaults.standard.array(forKey: "favoriteWord") != nil {
+                favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
+            }
+            favoriteWord = favoriteWord.filter { !($0["man"] == sender.accessibilityHint && $0["day"] == self.day) }
+            
             UserDefaults.standard.set(favoriteWord, forKey: "favoriteWord")
         }
     }
