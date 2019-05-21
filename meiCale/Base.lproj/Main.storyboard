@@ -178,7 +178,7 @@
         <!--Favorite List View Controller-->
         <scene sceneID="QXG-TC-1Jx">
             <objects>
-                <viewController id="ZKI-MK-Q1z" customClass="FavoriteListViewController" customModule="meiCale" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main2" id="ZKI-MK-Q1z" customClass="FavoriteListViewController" customModule="meiCale" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WPK-Kg-LxY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,6 +266,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EO6-sb-aVK">
+                                        <rect key="frame" x="328" y="50" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="humburger"/>
+                                        <connections>
+                                            <segue destination="M4i-ee-ru8" kind="presentation" id="7mv-or-Scr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -281,6 +289,116 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddO-Zm-tjI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1896.8" y="33.733133433283363"/>
+        </scene>
+        <!--Menu View Controller2-->
+        <scene sceneID="PO7-7b-aJt">
+            <objects>
+                <viewController id="M4i-ee-ru8" customClass="MenuViewController2" customModule="meiCale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NTq-KQ-yrC" customClass="Menuview">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-Ki-2Rv">
+                                <rect key="frame" x="72" y="0.0" width="303" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xR0-ym-qX6">
+                                        <rect key="frame" x="257" y="40" width="26" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="minus"/>
+                                        <connections>
+                                            <action selector="close:" destination="vUh-e5-sJt" eventType="touchUpInside" id="Rvz-ea-u6z"/>
+                                            <action selector="close:" destination="M4i-ee-ru8" eventType="touchUpInside" id="dcx-TW-CqR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVk-DZ-N4h">
+                                        <rect key="frame" x="43" y="86" width="216" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="TOP画面">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="favariteList:" destination="vUh-e5-sJt" eventType="touchUpInside" id="Kur-eW-q4g"/>
+                                            <segue destination="6MV-8Y-UIh" kind="presentation" identifier="top" id="GNT-jm-tSq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qkT-cy-gkJ">
+                                        <rect key="frame" x="43" y="131" width="216" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="人物検索">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="manChoice:" destination="vUh-e5-sJt" eventType="touchUpInside" id="7sC-0P-Kjy"/>
+                                            <segue destination="SBb-4M-wnY" kind="presentation" identifier="choiceBacked" id="lN3-l9-596"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hyK-8E-fKI">
+                                        <rect key="frame" x="43" y="176" width="216" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="通知設定">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="alertSettingButtonTouchDown:" destination="vUh-e5-sJt" eventType="touchUpInside" id="oU9-by-lQI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oz8-aa-mPt">
+                                        <rect key="frame" x="43" y="221" width="216" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="このアプリについて">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="infoPolicy:" destination="vUh-e5-sJt" eventType="touchUpInside" id="nsC-OP-YI2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="sM5-7g-lB6"/>
+                    </view>
+                    <connections>
+                        <outlet property="menuView" destination="A9c-Ki-2Rv" id="kqx-Em-mw1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nrd-kI-jgo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2740" y="34"/>
         </scene>
         <!--Top View Controller-->
         <scene sceneID="7IP-yA-4kR">
@@ -528,6 +646,113 @@
             </objects>
             <point key="canvasLocation" x="1792.8" y="812.74362818590714"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="4MW-iD-h8s">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="vUh-e5-sJt" customClass="MenuViewController" customModule="meiCale" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="5pE-y7-cHd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JtK-jA-sCX">
+                                <rect key="frame" x="72" y="0.0" width="303" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nll-n6-dH9">
+                                        <rect key="frame" x="257" y="40" width="26" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="minus"/>
+                                        <connections>
+                                            <action selector="close:" destination="vUh-e5-sJt" eventType="touchUpInside" id="ZnC-m7-zqq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Max-pe-Obp">
+                                        <rect key="frame" x="43" y="86" width="216" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="お気に入り名言           ">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="favariteList:" destination="vUh-e5-sJt" eventType="touchUpInside" id="hF4-ah-g2d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KO-AO-zmo">
+                                        <rect key="frame" x="43" y="131" width="216" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="人物検索">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="manChoice:" destination="vUh-e5-sJt" eventType="touchUpInside" id="2JP-Sa-rec"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Xu-pM-W5R">
+                                        <rect key="frame" x="43" y="176" width="216" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="通知設定">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="alertSettingButtonTouchDown:" destination="vUh-e5-sJt" eventType="touchUpInside" id="PLD-qG-Awh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q32-h0-W4D">
+                                        <rect key="frame" x="43" y="221" width="216" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="このアプリについて">
+                                                    <attributes>
+                                                        <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="infoPolicy:" destination="vUh-e5-sJt" eventType="touchUpInside" id="kZX-Ml-NnA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="C0w-SR-mID"/>
+                    </view>
+                    <connections>
+                        <outlet property="menuView" destination="JtK-jA-sCX" id="TBd-Bm-M4W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCa-aq-AZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1792.8" y="812.74362818590714"/>
+        </scene>
     </scenes>
     <resources>
         <image name="humburger" width="75" height="75"/>
@@ -536,7 +761,7 @@
         <image name="topImage" width="1920" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D7H-Es-dLi"/>
-        <segue reference="bcV-oF-XHb"/>
+        <segue reference="odo-nq-fZZ"/>
+        <segue reference="lN3-l9-596"/>
     </inferredMetricsTieBreakers>
 </document>

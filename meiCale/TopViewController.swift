@@ -77,9 +77,9 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         // 通知内容の設定
         let content = UNMutableNotificationContent()
         content.title = "今日の名言が更新されました！"
-        content.subtitle = self.meiCaleList[0].name
-        content.body = self.meiCaleList[0].word
-        content.sound = UNNotificationSound.default()
+ //       content.subtitle = self.meiCaleList[0].name
+ //       content.body = self.meiCaleList[0].word
+ //       content.sound = UNNotificationSound.default()
         
         let timerIconURL = Bundle.main.url(forResource: "topImage", withExtension: "jpg")
         //let timerIconURL = URL(string:self.meiCaleList[0].imageUrl as String)
