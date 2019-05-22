@@ -761,6 +761,7 @@
         <image name="topImage" width="1920" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="D7H-Es-dLi"/>
         <segue reference="odo-nq-fZZ"/>
         <segue reference="lN3-l9-596"/>
     </inferredMetricsTieBreakers>

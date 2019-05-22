@@ -113,6 +113,14 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
     //ルームのデータ取得メソッド
     func getCalenderInfo(){
         
+        // favoriteWordの存在チェック、初期値設定
+        if UserDefaults.standard.object(forKey: "favoriteWord") != nil {
+
+            //お気に入り名言
+            favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
+
+        }
+        
         let db = Firestore.firestore()
         
         db.collection("meiCaleList").getDocuments() { (querySnapshot, err) in
@@ -184,10 +192,17 @@ class TopViewController: UIViewController, UITableViewDelegate,UITableViewDataSo
         //Tagに「4」を振っている
         let likeButton = cell.contentView.viewWithTag(4) as! UIButton
         
-        let image = UIImage(named: "star")
-
-        likeButton.setImage(image, for: .normal)
+        var image = UIImage(named: "star")
         likeButton.accessibilityValue = "nonselect"
+
+        if let ok =  self.favoriteWord.index(where: {($0["man"] == self.meiCaleList[indexPath.row].number as? String && $0["day"] == day)}){
+
+            image = UIImage(named: "star_selected")
+            likeButton.accessibilityValue = "select"
+
+        }
+        
+        likeButton.setImage(image, for: .normal)
         likeButton.accessibilityHint = self.meiCaleList[indexPath.row].number
         
         likeButton.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.touchDown)

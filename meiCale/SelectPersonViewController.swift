@@ -32,6 +32,13 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
 
     // カスタムセルの初期データはここで適当に与える
     func setInitData() {
+
+        // famousUserListの存在チェック、初期値設定
+        if UserDefaults.standard.object(forKey: "famousUserList") != nil {
+
+            selectNumber = UserDefaults.standard.array(forKey: "famousUserList") as! [String]
+
+        }
         
         let db = Firestore.firestore()
         
@@ -76,6 +83,11 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
         //Tagに「3」を振っている
         let userCheckbox = cell.contentView.viewWithTag(3) as! BEMCheckBox
         userCheckbox.accessibilityValue = self.myCustomeData[indexPath.row].number
+        
+        if selectNumber.contains(self.myCustomeData[indexPath.row].number) {
+            userCheckbox.on = true
+        }
+        
         userCheckbox.addTarget(self, action: #selector(onClickMySwicth), for: UIControlEvents.valueChanged)
 
         //userCheckbox.delegate = self as? BEMCheckBoxDelegate
@@ -86,7 +98,7 @@ class SelectPersonViewController: UIViewController, UICollectionViewDelegate, UI
         cell.layer.cornerRadius = 5
         cell.layer.masksToBounds = true
         cell.fadeIn(duration:0.7)
-        return cell        
+        return cell
     }
     
     @objc func onClickMySwicth(_ sender: BEMCheckBox){
