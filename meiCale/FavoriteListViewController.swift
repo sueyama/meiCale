@@ -34,8 +34,14 @@ class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableVi
         topTableView.dataSource = self
         
         //お気に入り名言
-        favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
-        
+        // favoriteWordの存在チェック、初期値設定
+        if UserDefaults.standard.object(forKey: "favoriteWord") != nil {
+            
+            //お気に入り名言
+            favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
+            
+        }
+
         // ヘッダーを設定
         setHeader()
         
@@ -152,7 +158,7 @@ class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableVi
             if UserDefaults.standard.array(forKey: "favoriteWord") != nil {
                 favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
             }
-            favoriteWord.append(["man": sender.accessibilityHint!, "day": self.day])
+            favoriteWord.append(["man": sender.accessibilityHint!, "day": sender.accessibilityLabel!])
             
             UserDefaults.standard.set(favoriteWord, forKey: "favoriteWord")
             
@@ -164,7 +170,7 @@ class FavoriteListViewController: UIViewController,UITableViewDelegate,UITableVi
             if UserDefaults.standard.array(forKey: "favoriteWord") != nil {
                 favoriteWord = (UserDefaults.standard.array(forKey: "favoriteWord") as? [[String: String]])!
             }
-            favoriteWord = favoriteWord.filter { !($0["man"] == sender.accessibilityHint && $0["day"] == self.day) }
+            favoriteWord = favoriteWord.filter { !($0["man"] == sender.accessibilityHint && $0["day"] == sender.accessibilityLabel!) }
             
             UserDefaults.standard.set(favoriteWord, forKey: "favoriteWord")
 
