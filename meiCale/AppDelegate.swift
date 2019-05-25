@@ -29,9 +29,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TWTRTwitter.sharedInstance().start(withConsumerKey: "QIo4UvJ9T41XGXfA0ZZmQEW7o", consumerSecret: "SIqBLhgks5SmyXjhaz2RKwoe0rU1iBbkPpPBRros7Dw9GplG3k")
         // Override point for customization after application launch.
+        
+        gotoMainStoryBoard()
+        
+        
         return true
     }
 
+    func gotoMainStoryBoard(){
+        
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main",bundle:nil)
+        let viewController:UIViewController
+        
+        //表示するビューコントローラーを指定
+        if UserDefaults.standard.object(forKey: "famousUserList") != nil {
+            viewController = storyboard.instantiateViewController(withIdentifier: "Main") as UIViewController
+        } else {
+            viewController = storyboard.instantiateViewController(withIdentifier: "First") as UIViewController
+        }
+        
+        window?.rootViewController = viewController
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
