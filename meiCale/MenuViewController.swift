@@ -92,7 +92,7 @@ class MenuViewController: UIViewController {
     
     
     @IBAction func infoPolicy(_ sender: Any) {
-        let url = URL(string: "https://www.teijin.co.jp/privacy/")
+        let url = URL(string: "http://meicale.weblike.jp/privacy-policy/")
         // iOS 10以降利用可能
         UIApplication.shared.open(url!)
     }
